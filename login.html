@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <link rel="stylesheet" href="./index.css"/>
+    <title>Slate Tasks</title>
+  </head>
+    <body>
+        <div class="account-section">
+            <h1>Login</h1>
+            <input style="width: 100%;" type="text" id="username" placeholder="Username"/>
+            <input style="width: 100%;" type="password" id="password" placeholder="Password"/>
+            <button style="width: 100%;" type="button" id="loginButton">Login</button>
+            <div class="form-footer">
+                <p><a href="#">Forgot Password?</a></p>
+                <p>Don't have an account? <a href="#">Sign up</a></p>
+            </div>
+        </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
