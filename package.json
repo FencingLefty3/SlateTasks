@@ -1,0 +1,23 @@
+{
+  "name": "slate-tasks",
+  "version": "1.0.0",
+  "description": "App for orginizing your tasks into folders and tags with elo system.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FencingLefty3/SlateTasks"
+  },
+  "keywords": [
+    "ToDo",
+    "Tasks"
+  ],
+  "author": "FencingLefty3",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^27.0.0"
+  }
+}

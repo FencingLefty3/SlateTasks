@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <link rel="stylesheet" href="./index.css"/>
+    <title>Slate Tasks</title>
+  </head>
+  <body>
+    <div id="nav" class="nav">
+        <a href="#">Home</a>
+        <a href="#">Index</a>
+        <a href="#">Browse</a>
+        <a href="#">Settings</a>
+    </div>
+    <h1 class="title">Dashboard</h1>
+    <p id="info"></p>
+    <div class="section">
+        <p>Productivity Elo</p>
+        <!--<canvas id="EloChart"></canvas>-->
+    </div>
+    <div class="section">
+        <p>Create Task</p>
+        <input type="text" id="taskName" placeholder="Task Name"/>
+        <input type="datetime" id="taskDue" placeholder="Due Date"/>
+        <select id="taskPriority">
+            <option value="None">P1</option>
+            <option value="low">P2</option>
+            <option value="medium">P3</option>
+            <option value="high">P4</option>
+        </select>
+        <input type="text" id="tag" placeholder="Tags (comma separated)"/>
+        <button type="button" id="createTask">Create</button>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
