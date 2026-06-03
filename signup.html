@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <link rel="stylesheet" href="./index.css"/>
+    <title>Slate Tasks</title>
+  </head>
+    <body>
+        <div class="account-section">
+            <h1>Sign Up</h1>
+
+            <input type="text" id="Name" placeholder="Name" required/>
+            <input type="email" id="email" placeholder="Email" required/>
+            <input type="password" id="password" placeholder="Password" autocomplete="new-password" required/>
+            <button type="button" id="signupButton" onclick="signUp()">Sign Up</button>
+            <div class="form-footer">
+                <p>Already have an account? <a href="./login.html">Login Here.</a></p>
+            </div>
+        </div>
+
+    <script src="./supabase.js"></script>
+  </body>
+</html> 

@@ -19,5 +19,8 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^42.3.2"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.107.0"
   }
 }
