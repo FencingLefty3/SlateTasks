@@ -2,19 +2,26 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
+      content="
+        default-src 'self';
+        script-src 'self' 'unsafe-eval' 'unsafe-inline' http://localhost:5173;
+        style-src 'self' 'unsafe-inline';
+        img-src 'self' data:;
+        connect-src 'self' ws://localhost:5173 http://localhost:5173;
+      "
     />
-    <meta
-      http-equiv="X-Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <link rel="stylesheet" href="./index.css"/>
+
+    <link rel="stylesheet" href="./index.css" />
     <title>Slate Tasks</title>
   </head>
+
   <body>
     <div>Collecting Account Data...</div>
     <span class="loader"></span>
+
+    <script type="module" src="./auth.js"></script>
   </body>
 </html>

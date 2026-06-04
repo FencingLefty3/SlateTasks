@@ -4,17 +4,20 @@
     <meta charset="UTF-8" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <meta
-      http-equiv="X-Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
+      content="
+        default-src 'self';
+        script-src 'self' 'unsafe-eval' 'unsafe-inline' http://localhost:5173;
+        style-src 'self' 'unsafe-inline';
+        img-src 'self' data:;
+        connect-src 'self' https://*.supabase.co ws://localhost:5173 http://localhost:5173;;
+      "
     />
     <link rel="stylesheet" href="./index.css"/>
     <title>Slate Tasks</title>
   </head>
     <body>
-        <div class="account-section">
+        <form class="account-section" id="loginForm">
+
             <h1>Login</h1>
         
             <input style="width: 100%;" type="email" id="email" placeholder="Email" required/>
@@ -23,7 +26,8 @@
 
             <p><a href="#">Forgot Password?</a></p>
             <p>Don't have an account?<a href="./signup.html">Create one here.</a></p>
-        </div> 
+        </form> 
+        <script type="module" src="./login.js"></script>
     </body>
     
 </html>

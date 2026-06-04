@@ -2,30 +2,33 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
+      content="
+        default-src 'self';
+        script-src 'self' 'unsafe-eval' 'unsafe-inline' http://localhost:5173;
+        style-src 'self' 'unsafe-inline';
+        img-src 'self' data:;
+        connect-src 'self' https://*.supabase.co ws://localhost:5173 http://localhost:5173;;
+      "
     />
-    <meta
-      http-equiv="X-Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
+
     <link rel="stylesheet" href="./index.css"/>
     <title>Slate Tasks</title>
   </head>
     <body>
-        <div class="account-section">
-            <h1>Sign Up</h1>
+      <form class="account-section" id="signupForm">
+        <h1>Sign Up</h1>
+        <input type="text" id="Name" placeholder="Name" autocomplete="name" required />
+        <input type="email" id="email" placeholder="Email" autocomplete="email" required />
+        <input type="password" id="password" placeholder="Password" autocomplete="new-password" required />
 
-            <input type="text" id="Name" placeholder="Name" required/>
-            <input type="email" id="email" placeholder="Email" required/>
-            <input type="password" id="password" placeholder="Password" autocomplete="new-password" required/>
-            <button type="button" id="signupButton" onclick="signUp()">Sign Up</button>
-            <div class="form-footer">
-                <p>Already have an account? <a href="./login.html">Login Here.</a></p>
-            </div>
-        </div>
+        <button type="submit">Sign Up</button>
 
-    <script src="./supabase.js"></script>
+        <p>Already have an account? <a href="./login.html">Login Here.</a></p>
+      </form>
+            
+    <script type="module" src="./signup.js"></script>
   </body>
 </html> 

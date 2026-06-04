@@ -4,7 +4,8 @@
   "description": "App for orginizing your tasks into folders and tags with elo system.",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
+    "start": "vite",
+    "dev": "vite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +22,7 @@
     "electron": "^42.3.2"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.107.0"
+    "@supabase/supabase-js": "^2.107.0",
+    "vite": "^8.0.16"
   }
 }

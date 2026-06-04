@@ -86,14 +86,16 @@ input::placeholder, textarea::placeholder {
 }
 
 .account-section {
-  padding-left: 15px;
   padding-top: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 5px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-bottom: 5px;
-  margin: 20px;
   row-gap: 10px;
   border-radius: 8px;
   background-color: #2d3b4b51;
