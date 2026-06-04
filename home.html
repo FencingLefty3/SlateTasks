@@ -4,21 +4,23 @@
     <meta charset="UTF-8" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <meta
-      http-equiv="X-Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
+      content="
+        default-src 'self';
+        script-src 'self' 'unsafe-eval' 'unsafe-inline' http://localhost:5173;
+        style-src 'self' 'unsafe-inline';
+        img-src 'self' data:;
+        connect-src 'self' https://*.supabase.co ws://localhost:5173 http://localhost:5173;;
+      "
     />
     <link rel="stylesheet" href="./index.css"/>
     <title>Slate Tasks</title>
   </head>
   <body>
     <div id="nav" class="nav">
-        <a href="index.html">Home</a>
-        <a href="files.html">Index</a>
-        <a href="browse.html">Browse</a>
-        <a href="accounts.html">Settings</a>
+      <a href="home.html">Home</a>
+      <a href="inbox.html">Inbox</a>
+      <a href="browse.html">Browse</a>
+      <a href="accounts.html">Settings</a>
     </div>
     <h1 class="title">Dashboard</h1>
     <p id="info"></p>
@@ -26,6 +28,7 @@
         <p>Productivity Score</p>
         <!--<canvas id="EloChart"></canvas>-->
     </div>
+    <div class="page">
     <div class="section">
         <p>Create Task</p>
         <input type="text" id="taskName" placeholder="Task Name"/>
@@ -38,6 +41,7 @@
         </select>
         <input type="text" id="tag" placeholder="Tags (comma separated)"/>
         <button type="button" id="createTask">Create</button>
+    </div>
     </div>
     <script src="./app.js"></script>
   </body>

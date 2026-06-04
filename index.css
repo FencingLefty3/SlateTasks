@@ -1,4 +1,21 @@
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
 body {
+  margin: 0;
+  padding-left: 5em;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+  background: #1f1f1f;
+  color: #fff;
+}
+
+.body {
+
   margin: 0;
   padding: 0;
   flex-direction: column;
@@ -41,6 +58,41 @@ body {
         100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
     }
 
+
+.loader2 {
+  width: 320px;
+  height: 150px;
+  display: block;
+  margin: auto;
+  position: relative;
+  background: #2d3b4b51;
+  box-sizing: border-box;
+}
+.loader2::after {
+  content: '';  
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  top: 15px;
+  left: 15px;
+  position: absolute;
+  background-image: linear-gradient(100deg, transparent, rgba(45, 59, 75, 0.5) 50%, transparent 80%), radial-gradient(circle 28px at 28px 28px, #2d3b4b51 99%, transparent 0), linear-gradient(#2d3b4b51 24px, transparent 0), linear-gradient(#2d3b4b51 18px, transparent 0), linear-gradient(#2d3b4b51 66px, transparent 0);
+  background-repeat: no-repeat;
+  background-size: 75px 130px, 55px 56px, 160px 30px, 260px 20px, 290px 56px;
+  background-position: 0% 0, 0 0, 70px 5px, 70px 38px, 0px 66px;
+  box-sizing: border-box;
+  animation: animloader 1s linear infinite;
+}
+
+@keyframes animloader {
+  0% {
+    background-position: 0% 0, 0 0, 70px 5px, 70px 38px, 0px 66px;
+  }
+  100% {
+    background-position: 150% 0, 0 0, 70px 5px, 70px 38px, 0px 66px;
+  }
+}
+  
+
 input, select, textarea, button {
   background: #2d3b4b51;
   border: none;
@@ -64,18 +116,42 @@ input::placeholder, textarea::placeholder {
   padding-left: 20px;
   font-size: 2em;
 }
+.page {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 
 .nav {
+  position: fixed;
+    top: 0;
+    left: 0;
+    height: 50vh;
+    width: 5em;
+    background-color: #1a1a2e;
+    color: #ffffff;
+    padding-top: 20px;
   display: flex;
+  flex-direction: column;
+  row-gap: 10px;
   gap: 20px;
   padding: 20px;
-  display: flex;
+  padding-top: 10em;
+  padding-bottom: 10em;
   justify-content: center;
   align-items: center;
   background-color: #262626;
 }
 
 .section {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
   padding-left: 15px;
   padding-top: 3px;
   padding-bottom: 5px;
