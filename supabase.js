@@ -38,9 +38,9 @@ export async function getUser() {
 export async function redirectBasedOnAuth() {
     const { user } = await getUser();
     if (user) {
-        window.location.href = './home.html';
+        window.setView("home");
     } else {
-        window.location.href = './login.html';
+        window.setView("login");
     }
 }
 

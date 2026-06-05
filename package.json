@@ -5,10 +5,11 @@
   "description": "App for orginizing your tasks into folders and tags with elo system.",
   "main": "main.js",
   "scripts": {
-    "start": "vite",
     "dev": "vite",
+    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "package": "electron-builder"
+    "build": "vite build",
+    "package": "npm run build && electron-builder"
   },
   "repository": {
     "type": "git",
@@ -29,8 +30,14 @@
     "vite": "^8.0.16"
   },
   "build": {
+    "icon": "images/icon.ico",
     "appId": "com.fencinglefty3.slate-tasks",
-    "files": ["**/*"],
+    "files": [
+    "dist/**/*",
+    "main.js",
+    "images/**/*",
+    "package.json"
+  ],
     "win": {
       "forceCodeSigning": false
     }

@@ -1,7 +1,12 @@
 import { signIn } from "./supabase.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+export function initLoginForm() {
   const form = document.getElementById("loginForm");
+
+  if (!form) {
+    console.error("Login form not found in DOM");
+    return;
+  }
 
   console.log("Login form loaded:", form);
 
@@ -22,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-
     console.log("Attempting login:", { email });
 
     try {
@@ -41,11 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Logged in successfully.");
 
       // redirect to home
-      window.location.href = "./home.html";
+      window.setView("home");
 
     } catch (err) {
       console.error("Unexpected error:", err);
       alert("Something went wrong.");
     }
   });
-});
+}
+
+// Initialize on DOMContentLoaded for initial page load
+document.addEventListener("DOMContentLoaded", initLoginForm);

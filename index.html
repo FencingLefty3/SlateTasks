@@ -5,23 +5,21 @@
 
     <meta
       http-equiv="Content-Security-Policy"
-      content="
-        default-src 'self';
-        script-src 'self' 'unsafe-eval' 'unsafe-inline' http://localhost:5173;
-        style-src 'self' 'unsafe-inline';
-        img-src 'self' data:;
-        connect-src 'self' ws://localhost:5173 http://localhost:5173;
-      "
+      content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' http://localhost:5173; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://*.supabase.co ws://localhost:5173 http://localhost:5173"
     />
 
     <link rel="stylesheet" href="./index.css" />
+    <link rel="icon" type="image/png" href="./images/icon.png"/>
     <title>Slate Tasks</title>
   </head>
 
   <body class="body">
-    <div>Collecting Account Data...</div>
-    <span class="loader"></span>
+    <div id="app-container">
+      <div>Collecting Account Data...</div>
+      <span class="loader"></span>
+    </div>
 
+    <script type="module" src="./router.js"></script>
     <script type="module" src="./auth.js"></script>
   </body>
 </html>

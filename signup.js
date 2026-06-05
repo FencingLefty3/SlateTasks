@@ -1,7 +1,12 @@
-import { signUp } from "./supabase.js";
+import { signUp, signIn } from "./supabase.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+export function initSignupForm() {
   const form = document.getElementById("signupForm");
+
+  if (!form) {
+    console.error("Signup form not found in DOM");
+    return;
+  }
 
   console.log("Signup form loaded:", form);
 
@@ -31,27 +36,45 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Attempting signup:", { name, email });
 
     try {
-      const { data, error } = await signUp({
+      const { data: signupData, error: signupError } = await signUp({
         email,
         password,
         name
       });
 
-      console.log("Supabase response:", data, error);
+      console.log("Supabase signup response:", signupData, signupError);
 
-      if (error) {
-        alert(error.message);
+      if (signupError) {
+        alert(signupError.message);
         return;
       }
 
       alert("Account created successfully.");
 
-      // redirect to login
-      window.location.href = "./login.html";
+      // Auto sign in after signup
+      const { data: signinData, error: signinError } = await signIn({
+        email,
+        password
+      });
+
+      console.log("Supabase signin response:", signinData, signinError);
+
+      if (signinError) {
+        alert(signinError.message);
+        return;
+      }
+
+      alert("Logged in successfully.");
+
+      // Redirect to home
+      window.setView("home");
 
     } catch (err) {
       console.error("Unexpected error:", err);
       alert("Something went wrong.");
     }
   });
-});
+}
+
+// Initialize on DOMContentLoaded for initial page load
+document.addEventListener("DOMContentLoaded", initSignupForm);
