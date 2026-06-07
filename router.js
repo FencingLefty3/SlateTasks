@@ -106,7 +106,6 @@ const pages = {
       "
     />
     <link rel="stylesheet" href="./index.css"/>
-    <link rel="icon" type="image/png" href="./images/icon.png"/>
     <title>Slate Tasks - Account</title>
   </head>
   <body>
@@ -116,23 +115,12 @@ const pages = {
         <a href="browse.html">Browse</a>
         <a href="accounts.html">Settings</a>
     </div>
-    <!-- App Mount Point -->
-    <div id="app">
-      <!-- Accounts UI will be injected here -->
-      <div class="loading-state">
-       <span class="loader2"></span> 
-      </div>
+    <div class="account-section">
+      <div class="name-section"><div class="circle"></div><h2 id="name">Name Name</h2></div>
+      <p id="email">Email@email.com</p>
+      <button id="logOutBtn">Sign Out</button>
     </div>
-
-    <!-- Module entry -->
-    <script type="module">
-      import { loadAccountData, renderAccount } from "./accounts.js";
-
-      (async () => {
-        await loadAccountData();
-        renderAccount("app");
-      })();
-    </script>
+    <script type="module" src="./accounts.js"></script>
   </body>
 </html>`,
 

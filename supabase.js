@@ -112,4 +112,3 @@ export async function subscribeToTasks(callback) {
         )
         .subscribe();
 }
-console.log(SUPABASE_URL);
