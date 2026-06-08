@@ -7,7 +7,6 @@ function createWindow() {
     height: 600,
     icon: path.join(__dirname, 'images', 'icon.ico')
   });
-
   if (!app.isPackaged) {
     win.loadURL('http://localhost:5173');
   } else {

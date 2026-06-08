@@ -11,7 +11,7 @@ const pages = {
     />
     <link rel="stylesheet" href="./index.css"/>
     <link rel="icon" type="image/png" href="./images/icon.png"/>
-    <title>Slate Tasks</title>
+    <title>Slated</title>
   </head>
     <body>
         <form class="account-section" id="loginForm">
@@ -35,7 +35,7 @@ const pages = {
     />
     <link rel="stylesheet" href="./index.css"/>
     <link rel="icon" type="image/png" href="./images/icon.png"/>
-    <title>Slate Tasks</title>
+    <title>Slated</title>
   </head>
     <body>
       <form class="account-section" id="signupForm">
@@ -59,7 +59,7 @@ const pages = {
     />
     <link rel="stylesheet" href="./index.css"/>
     <link rel="icon" type="image/png" href="./images/icon.png"/>
-    <title>Slate Tasks</title>
+    <title>Slated</title>
   </head>
   <body>
     <div id="nav" class="nav">
@@ -106,18 +106,19 @@ const pages = {
       "
     />
     <link rel="stylesheet" href="./index.css"/>
-    <title>Slate Tasks - Account</title>
+    <title>Slated - Account</title>
   </head>
   <body>
     <div id="nav" class="nav">
-        <a href="home.html">Home</a>
-        <a href="inbox.html">Inbox</a>
-        <a href="browse.html">Browse</a>
-        <a href="accounts.html">Settings</a>
+        <a href="#" onclick="window.setView('home')">Home</a>
+        <a href="#" onclick="window.setView('inbox')">Inbox</a>
+        <a href="#" onclick="window.setView('browse')">Browse</a>
+        <a href="#" onclick="window.setView('accounts')">Settings</a>
     </div>
     <div class="account-section">
-      <div class="name-section"><div class="circle"></div><h2 id="name">Name Name</h2></div>
-      <p id="email">Email@email.com</p>
+      <div class="name-section"><div class="circle"><h3 id="icon">XX</h3></div><h2 id="name">Name Name</h2></div>
+      <div id="email">Email@email.com</div>
+      <br>
       <button id="logOutBtn">Sign Out</button>
     </div>
     <script type="module" src="./accounts.js"></script>
@@ -129,7 +130,7 @@ const pages = {
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="./index.css"/>
-    <title>Browse - Slate Tasks</title>
+    <title>Browse - Slated</title>
   </head>
   <body>
     <div id="nav" class="nav">
@@ -148,7 +149,7 @@ const pages = {
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="./index.css"/>
-    <title>Inbox - Slate Tasks</title>
+    <title>Inbox - Slated</title>
   </head>
   <body>
     <div id="nav" class="nav">
@@ -200,6 +201,8 @@ export async function setView(pageName) {
 
 async function loadPageScripts(pageName) {
   // Dynamically import and initialize the scripts needed for each page
+  const { timeTheme } = await import('./css.js');
+  timeTheme()
   try {
     switch (pageName) {
       case 'login': {
@@ -214,6 +217,12 @@ async function loadPageScripts(pageName) {
       }
       case 'home': {
         await import('./app.js');
+        break;
+      }
+      case 'accounts': {
+        const { loadUser, logOut } = await import('./accounts.js');
+        logOut();
+        loadUser();
         break;
       }
       default:

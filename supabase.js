@@ -11,7 +11,11 @@ export async function signUp({ email, password, name }) {
     const { data, error } = await supabase.auth.signUp({
         email,
         password,
-        name
+        options: {
+          data: {
+            username: name
+          }
+        }
     });
     return { data, error };
 }
@@ -42,6 +46,15 @@ export async function redirectBasedOnAuth() {
     } else {
         window.setView("login");
     }
+}
+
+export async function forgotPassword() {
+    return await supabase.auth.resetPasswordForEmail( email, {
+        redirectTo: "http://localhost:5173/reset-password"
+
+    })
+
+
 }
 
 export async function createTask({ user, title, description, priority, dueDate }) {

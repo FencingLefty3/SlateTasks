@@ -1,8 +1,8 @@
 {
   "name": "slate-tasks",
-  "productName": "Slate Tasks",
+  "productName": "Slated",
   "version": "1.0.0",
-  "description": "App for orginizing your tasks into folders and tags with elo system.",
+  "description": "App for orginizing your Slated Tasks into folders and tags with Productivity Score elo system.",
   "main": "main.js",
   "scripts": {
     "dev": "vite",
